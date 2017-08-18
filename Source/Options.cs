@@ -31,10 +31,20 @@ namespace ProfitableTourismMod
         public static string[] TaxiIncomeMultipliersStr = new string[] { "no change", "x2", "x3", "x5", "x10" };
         public int TaxiIncomeMultiplier;
 
+        public static int[] OfficeIncomeMultipliers = new int[] { 1, 2, 3, 5, 10, 15, 20 };
+        public static string[] OfficeIncomeMultipliersStr = new string[] { "no change", "x2", "x3", "x5", "x10", "x15", "x20" };
+        public int OfficeIncomeMultiplier;
+
+        public static int[] IndustryIncomeMultipliers = new int[] { 1, 2, 3, 5, 10, 15, 20 };
+        public static string[] IndustryIncomeMultipliersStr = new string[] { "no change", "x2", "x3", "x5", "x10", "x15", "x20" };
+        public int IndustryIncomeMultiplier;
+
         public PTM_Options()
         {
             TourismIncomeMultiplier = 5;
             TaxiIncomeMultiplier = 2;
+            OfficeIncomeMultiplier = 1;
+            IndustryIncomeMultiplier = 1;
         }
 
         public int GetTourismIncomeMultiplierIndex()
@@ -51,6 +61,24 @@ namespace ProfitableTourismMod
             int index = Array.IndexOf(TaxiIncomeMultipliers, TaxiIncomeMultiplier);
 
             if (index == -1) return Array.IndexOf(TaxiIncomeMultipliers, 2);
+
+            return index;
+        }
+
+        public int GetOfficeIncomeMultiplierIndex()
+        {
+            int index = Array.IndexOf(OfficeIncomeMultipliers, OfficeIncomeMultiplier);
+
+            if (index == -1) return Array.IndexOf(OfficeIncomeMultipliers, 1);
+
+            return index;
+        }
+
+        public int GetIndustryIncomeMultiplierIndex()
+        {
+            int index = Array.IndexOf(IndustryIncomeMultipliers, IndustryIncomeMultiplier);
+
+            if (index == -1) return Array.IndexOf(IndustryIncomeMultipliers, 1);
 
             return index;
         }

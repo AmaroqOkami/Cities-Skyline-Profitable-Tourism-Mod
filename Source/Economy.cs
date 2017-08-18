@@ -33,6 +33,18 @@ namespace ProfitableTourismMod
                 return newAmount;
             }
 
+            // Office income multiplier
+            if ((ItemClass.Service)service == ItemClass.Service.Office)
+            {
+                return amount * PTM_Options.Instance.OfficeIncomeMultiplier;
+            }
+
+            // Office income multiplier
+            if ((ItemClass.Service)service == ItemClass.Service.Industrial)
+            {
+                return amount * PTM_Options.Instance.IndustryIncomeMultiplier;
+            }
+
             // Bonus feature :)
             if ((ItemClass.SubService)subService == ItemClass.SubService.PublicTransportTaxi)
             {
